@@ -1,50 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:qcmapp/data/datasource/static/static.dart';
+import 'package:get/get.dart';
+import 'package:qcmapp/controller/onboarding/onboarding_controller.dart';
+import 'package:qcmapp/view/widgets/onboarding/custombutton.dart';
+import 'package:qcmapp/view/widgets/onboarding/customslideronboarding.dart';
+import 'package:qcmapp/view/widgets/onboarding/dotcontroller.dart';
 
 class OnBoarding extends StatelessWidget {
   const OnBoarding({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Get.put(OnBoardingControllerImp());
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
           child: Column(
         children: [
-          Expanded(
+          const Expanded(
             flex: 3,
-            child: PageView.builder(
-              itemCount: onBoardingList.length,
-              itemBuilder: (BuildContext context, int index) => Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30),
-                    child: Image.asset(
-                      onBoardingList[index].image!,
-                      width: 250,
-                      height: 260,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    onBoardingList[index].title!,
-                    style: Theme.of(context).textTheme.headline1,
-                  ),
-                  const SizedBox(
-                    height: 0,
-                  ),
-                  Text(
-                    onBoardingList[index].body!,
-                    style: Theme.of(context).textTheme.bodyText1,
-                  ),
-                ],
-              ),
-            ),
+            child: CustomSliderOnBoarding(),
           ),
-          Expanded(flex: 1, child: Container())
+          Expanded(
+              flex: 1,
+              child: Column(
+                children: const [
+                  Spacer(
+                    flex: 1,
+                  ),
+                  CustomDotControllerOnBoarding(),
+                  Spacer(
+                    flex: 4,
+                  ),
+                  CustomButtonOnBoarding(),
+                ],
+              ))
         ],
       )),
     );

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qcmapp/binding.dart';
+import 'package:qcmapp/core/services/services.dart';
 import 'package:qcmapp/routes.dart';
 import 'package:qcmapp/view/screens/onboarding/onboardin.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  //toujours si ona async dans le main
+  await initialService();
   runApp(const MyApp());
 }
 
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
           textTheme: const TextTheme(
             bodyText1: TextStyle(
               fontFamily: "Cairo",
-              fontSize: 12,
+              fontSize: 14,
               color: Colors.black,
               height: 2,
             ),

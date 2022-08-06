@@ -16,7 +16,7 @@ class CustomButtonAuth extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: color ?? AppColors.colorBlue),
+            color: color ?? AppColors.blue),
         height: 40,
         alignment: Alignment.center,
         width: 300,
