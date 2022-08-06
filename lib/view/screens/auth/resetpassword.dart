@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:qcmapp/core/constant/routes.dart';
 import 'package:qcmapp/view/widgets/custombuttonauth.dart';
 import 'package:qcmapp/view/widgets/customtetxformfield.dart';
 
@@ -50,7 +52,10 @@ class ResetPassword extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              const CustomButtonAuth(
+              CustomButtonAuth(
+                onPressed: () {
+                  Get.toNamed(AppRoutes.login);
+                },
                 text: "Submit",
               ),
             ],

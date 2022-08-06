@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:qcmapp/core/constant/routes.dart';
 import 'package:qcmapp/view/widgets/custombuttonauth.dart';
 import 'package:qcmapp/view/widgets/custombuttonsignwith.dart';
 import 'package:qcmapp/view/widgets/customtetxformfield.dart';
+import 'package:qcmapp/view/widgets/customtextbutton.dart';
 import 'package:qcmapp/view/widgets/dividerwithtext.dart';
 
 class Login extends StatelessWidget {
@@ -46,18 +49,20 @@ class Login extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Text(
-                "Forget Password ?",
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                  color: Colors.blue,
-                  fontWeight: FontWeight.bold,
+              Container(
+                alignment: Alignment.topRight,
+                child: CustomTextButton(
+                  text: "Forget Password ?",
+                  onTap: () {
+                    Get.toNamed(AppRoutes.forgetPassword);
+                  },
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              const CustomButtonAuth(
+              CustomButtonAuth(
+                onPressed: () {},
                 text: "Login",
               ),
               const SizedBox(
@@ -81,12 +86,11 @@ class Login extends StatelessWidget {
                     "New To Logistics ? ",
                     style: TextStyle(color: Colors.grey[800]),
                   ),
-                  const Text(
-                    "Register",
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  CustomTextButton(
+                    text: "Register",
+                    onTap: () {
+                      Get.toNamed(AppRoutes.signUp);
+                    },
                   ),
                 ],
               )

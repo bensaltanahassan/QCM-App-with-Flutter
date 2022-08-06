@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:qcmapp/core/constant/routes.dart';
 import 'package:qcmapp/view/widgets/custombuttonauth.dart';
 import 'package:qcmapp/view/widgets/customtetxformfield.dart';
+import 'package:qcmapp/view/widgets/customtextbutton.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -108,8 +111,9 @@ class SignUp extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const CustomButtonAuth(
+              CustomButtonAuth(
                 text: "Continue",
+                onPressed: () {},
               ),
               const SizedBox(
                 height: 20,
@@ -121,13 +125,12 @@ class SignUp extends StatelessWidget {
                     "Joined us before ? ",
                     style: TextStyle(color: Colors.grey[800]),
                   ),
-                  const Text(
-                    "Login",
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  CustomTextButton(
+                    onTap: (() {
+                      Get.toNamed(AppRoutes.login);
+                    }),
+                    text: "Login",
+                  )
                 ],
               )
             ],

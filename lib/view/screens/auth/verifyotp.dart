@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:get/get.dart';
+import 'package:qcmapp/core/constant/routes.dart';
 import 'package:qcmapp/view/widgets/custombuttonauth.dart';
 
 class VerifyOtp extends StatelessWidget {
@@ -48,11 +50,15 @@ class VerifyOtp extends StatelessWidget {
                 onSubmit: (String verificationCode) {}, // end onSubmit
               ),
               const SizedBox(height: 40),
-              const CustomButtonAuth(
+              CustomButtonAuth(
                 text: "Resend",
+                onPressed: () {},
               ),
               const SizedBox(height: 10),
-              const CustomButtonAuth(
+              CustomButtonAuth(
+                onPressed: () {
+                  Get.toNamed(AppRoutes.resetPassword);
+                },
                 text: "Verify",
                 color: Colors.green,
               ),
