@@ -7,6 +7,7 @@ import 'package:qcmapp/data/datasource/static/static.dart';
 abstract class OnBoardingController extends GetxController {
   next();
   onPageChanged(int index);
+  skip();
 }
 
 class OnBoardingControllerImp extends OnBoardingController {
@@ -15,6 +16,13 @@ class OnBoardingControllerImp extends OnBoardingController {
   late String? textOfButton = "Continue";
 
   MyServices myServices = Get.find();
+
+  @override
+  skip() {
+    myServices.sharedPreferences.setString("onboarding", "1");
+
+    Get.offAndToNamed(AppRoutes.welcome);
+  }
 
   @override
   void next() {
@@ -29,7 +37,7 @@ class OnBoardingControllerImp extends OnBoardingController {
       myServices.sharedPreferences.setString("onboarding", "1");
       textOfButton = "Get Started";
 
-      Get.offAllNamed(AppRoutes.login);
+      Get.offAllNamed(AppRoutes.welcome);
     }
   }
 

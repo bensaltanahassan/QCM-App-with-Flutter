@@ -5,15 +5,26 @@ import 'package:qcmapp/view/widgets/onboarding/custombutton.dart';
 import 'package:qcmapp/view/widgets/onboarding/customslideronboarding.dart';
 import 'package:qcmapp/view/widgets/onboarding/dotcontroller.dart';
 
-class OnBoarding extends StatelessWidget {
+class OnBoarding extends GetView<OnBoardingControllerImp> {
   const OnBoarding({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Get.put(OnBoardingControllerImp());
-
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        shadowColor: Colors.white,
+        elevation: 0,
+        actions: [
+          TextButton(
+              onPressed: () {
+                controller.skip();
+              },
+              child: const Text("Skip"))
+        ],
+      ),
       body: SafeArea(
           child: Column(
         children: [

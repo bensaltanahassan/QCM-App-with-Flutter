@@ -2,10 +2,10 @@ import 'package:qcmapp/core/constant/imageassets.dart';
 import 'package:qcmapp/data/model/onboardingmodel.dart';
 
 List<OnBoardingModel> onBoardingList = [
-  OnBoardingModel("Get Inspired", AppImageAsset.onBoardingImageOne,
-      "Share what you've learned from the \nlatest books you've read.\nWin with the power of knowledge."),
-  OnBoardingModel("title2", AppImageAsset.onBoardingImageTwo,
-      "Share what you've learned from the \nlatest books you've read.\nWon with the power of knowledge."),
-  OnBoardingModel("title3", AppImageAsset.onBoardingImageThree,
-      "Share what you've learned from\nthe latest books you've read.\nWon with the power of knowledge."),
+  OnBoardingModel("Entrainer", AppImageAsset.onBoardingImageOne,
+      "Partagez ce que vous avez appris des derniers\n livres que vous avez lus. Gagnez avec \nle pouvoir de la connaissance. "),
+  OnBoardingModel("Preparer", AppImageAsset.onBoardingImageTwo,
+      "Avec les différents type de concours,\n et différents modèles, vous avez la grande chance\n d'intégrer à une école supérieure."),
+  OnBoardingModel("Être inspiré", AppImageAsset.onBoardingImageThree,
+      "QCM concours à est une plateforme intelligente.\nLe but est de motiver les élèves en éducation, bien préparer\n les concours dans le but d'intégrer ses écoles de rêve. "),
 ];

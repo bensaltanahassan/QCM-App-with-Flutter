@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:qcmapp/binding.dart';
 import 'package:qcmapp/core/services/services.dart';
 import 'package:qcmapp/routes.dart';
-import 'package:qcmapp/view/screens/onboarding/onboardin.dart';
+import 'package:qcmapp/view/screens/onboarding/onboarding.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
               color: Colors.black,
             ),
           )),
-      home: const OnBoarding(),
       getPages: routes,
       initialBinding: MyBinding(),
     );
