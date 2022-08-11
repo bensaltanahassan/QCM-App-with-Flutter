@@ -25,6 +25,7 @@ class QuestionController extends GetxController {
   List<int> scoresOfAnswers = [];
   String question = "";
   String correctAnswer = "";
+  List<String> allCorrectAnswers = [];
   String category = "";
   int score = 0;
   int nbrOfQst = 10;
@@ -64,8 +65,15 @@ class QuestionController extends GetxController {
     options.shuffle();
   }
 
-  getAnswer(int indexQst) {
+  getCorrectAnswer(int indexQst) {
     correctAnswer = request[indexQst]["correct_answer"];
+  }
+
+  getAllCorrectAnswers() {
+    for (var indexQst = 0; indexQst < nbrOfQst; indexQst++) {
+      getCorrectAnswer(indexQst);
+      allCorrectAnswers.add(correctAnswer);
+    }
   }
 
   getCategory(int indexQst) {
@@ -91,7 +99,7 @@ class QuestionController extends GetxController {
   }
 
   checkAnswer(int indexOption, int indexQst) {
-    if (options[indexOption] == correctAnswer) {
+    if (allOptionsOfQst[indexQst][indexOption] == allCorrectAnswers[indexQst]) {
       scoresOfAnswers[indexQst] = 1;
     } else {
       scoresOfAnswers[indexQst] = -1;
@@ -109,6 +117,8 @@ class QuestionController extends GetxController {
     await loadQuestion(categories[0]);
     pageController = PageController();
     countDownController = CountDownController();
+    getAllOptionsOfQuestion();
+    getAllCorrectAnswers();
     for (var i = 0; i < nbrOfQst; i++) {
       scoresOfAnswers.add(0);
       // questionsIsAnswered.add(false);
@@ -121,6 +131,7 @@ class QuestionController extends GetxController {
   void dispose() {
     request.clear();
     options.clear();
+    allCorrectAnswers.clear();
     allOptionsOfQst.clear();
     selectedAnswers.clear();
     scoresOfAnswers.clear();

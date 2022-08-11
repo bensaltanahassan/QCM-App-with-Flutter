@@ -57,7 +57,6 @@ class Questions extends StatelessWidget {
                   controller: controler.pageController,
                   itemCount: 10,
                   itemBuilder: (BuildContext context, int indexQst) {
-                    controler.getAnswer(indexQst);
                     controler.getQuestion(indexQst);
 
                     return Padding(

@@ -102,7 +102,7 @@ class Login extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "New To Logistics ? ",
+                      "New ? ",
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     CustomTextButton(
