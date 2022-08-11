@@ -32,8 +32,11 @@ dependencies:
     sdk: flutter
   flutter_otp_text_field: ^1.1.0
   get: ^4.6.5
+  http: ^0.13.5
   icons_plus: ^2.0.1
+  neon_circular_timer: ^0.0.7
   shared_preferences: ^2.0.15
+  unicons: ^2.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -73,6 +76,5 @@ flutter:
         - asset: assets/fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf
         - asset: assets/fonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf
           weight: 700
-  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

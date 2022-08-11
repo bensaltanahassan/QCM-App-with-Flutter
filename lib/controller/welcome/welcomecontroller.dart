@@ -9,7 +9,9 @@ abstract class WelcomeController extends GetxController {
 
 class WelcomeControllerImp extends WelcomeController {
   @override
-  continueAsGuest() {}
+  continueAsGuest() {
+    Get.toNamed(AppRoutes.informationsguest);
+  }
 
   @override
   goToLogin() {

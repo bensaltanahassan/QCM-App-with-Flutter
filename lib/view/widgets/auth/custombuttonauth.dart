@@ -8,13 +8,15 @@ class CustomButtonAuth extends StatelessWidget {
       this.color,
       required this.onPressed,
       this.textColor,
-      this.borderColor})
+      this.borderColor,
+      this.withButton})
       : super(key: key);
   final String? text;
   final Color? color;
   final Color? textColor;
   final Color? borderColor;
   final void Function()? onPressed;
+  final double? withButton;
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +26,12 @@ class CustomButtonAuth extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: color ?? AppColors.blue,
-            boxShadow: const [
-              BoxShadow(color: Colors.blue, spreadRadius: 1),
+            boxShadow: [
+              BoxShadow(color: borderColor ?? Colors.blue, spreadRadius: 1),
             ]),
         height: 40,
         alignment: Alignment.center,
-        width: 300,
+        width: withButton ?? 300,
         child: Text(
           text!,
           style: TextStyle(color: textColor ?? Colors.white, fontSize: 16),

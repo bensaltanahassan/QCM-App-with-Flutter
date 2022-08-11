@@ -13,4 +13,28 @@ class AppImageAsset {
   //Logo
   // static const String logoAuth = "$rootImages/logo.png";
 
+  //schools
+  static const String ena = "$rootImages/ena.png";
+  static const String ensa = "$rootImages/ensa.png";
+  static const String ensam = "$rootImages/ensam.png";
+  static const String medecine = "$rootImages/medecine.png";
+  static const String encg = "$rootImages/encg.png";
+
+  //categories
+  static const String math = "$rootImages/math.png";
+  static const String pc = "$rootImages/pc.png";
+  static const String svt = "$rootImages/svt.png";
+
+  //Avatar
+  static const String avatar = "$rootImages/avatar.png";
+  static const String avatar1 = "$rootImages/avatar1.png";
+  static const String avatar2 = "$rootImages/avatar2.png";
+  static const String avatar3 = "$rootImages/avatar3.png";
+  static const String avatar4 = "$rootImages/avatar4.png";
+
+  //score
+  static const String home = "$rootImages/home.png";
+  static const String champion = "$rootImages/champion.png";
+  static const String logout = "$rootImages/logout.png";
+  static const String repeat = "$rootImages/repeat.png";
 }

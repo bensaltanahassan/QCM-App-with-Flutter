@@ -35,7 +35,6 @@ class OnBoardingControllerImp extends OnBoardingController {
       update();
     } else {
       myServices.sharedPreferences.setString("onboarding", "1");
-      textOfButton = "Get Started";
 
       Get.offAllNamed(AppRoutes.welcome);
     }

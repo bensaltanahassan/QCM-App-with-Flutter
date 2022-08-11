@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qcmapp/core/constant/colors.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField(
@@ -7,7 +8,9 @@ class CustomTextFormField extends StatelessWidget {
       this.icon,
       this.suffixIcon,
       this.hintText,
-      this.controller})
+      this.controller,
+      this.validator,
+      this.isPassword})
       : super(key: key);
 
   final String? labelText;
@@ -15,6 +18,8 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? icon;
   final Widget? suffixIcon;
   final TextEditingController? controller;
+  final String? Function(String?)? validator;
+  final bool? isPassword;
 
   @override
   Widget build(BuildContext context) {
@@ -25,19 +30,16 @@ class CustomTextFormField extends StatelessWidget {
           width: 10,
         ),
         Expanded(
-          child: Container(
-            height: 60,
-            decoration: const BoxDecoration(
-                border:
-                    Border(bottom: BorderSide(color: Colors.grey, width: 1))),
-            child: TextFormField(
-              controller: controller,
-              decoration: InputDecoration(
-                label: Text(labelText!),
-                hintText: hintText,
-                border: InputBorder.none,
-                suffixIcon: suffixIcon,
-              ),
+          child: TextFormField(
+            obscureText: isPassword ?? false,
+            validator: validator,
+            controller: controller,
+            decoration: InputDecoration(
+              label: Text(labelText!),
+              hintText: hintText,
+              border: const UnderlineInputBorder(
+                  borderSide: BorderSide(width: 1, color: AppColors.blue)),
+              suffixIcon: suffixIcon,
             ),
           ),
         )

@@ -15,10 +15,7 @@ class CustomTextButton extends StatelessWidget {
       onTap: onTap,
       child: Text(
         text!,
-        style: const TextStyle(
-          color: Colors.blue,
-          fontWeight: FontWeight.bold,
-        ),
+        style: Theme.of(context).textTheme.headline5,
       ),
     );
   }

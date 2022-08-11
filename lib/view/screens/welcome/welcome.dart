@@ -3,14 +3,14 @@ import 'package:get/get.dart';
 import 'package:qcmapp/controller/welcome/welcomecontroller.dart';
 import 'package:qcmapp/core/constant/colors.dart';
 import 'package:qcmapp/core/constant/imageassets.dart';
-import 'package:qcmapp/view/widgets/custombuttonauth.dart';
+import 'package:qcmapp/view/widgets/auth/custombuttonauth.dart';
 
 class Welcome extends GetView<WelcomeControllerImp> {
   const Welcome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Get.put(WelcomeControllerImp());
+    WelcomeControllerImp controller = Get.put(WelcomeControllerImp());
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(

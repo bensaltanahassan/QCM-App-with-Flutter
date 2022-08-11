@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:qcmapp/controller/auth/logincontroller.dart';
+import 'package:qcmapp/controller/auth/login_controller.dart';
 
 class MyBinding extends Bindings {
   @override

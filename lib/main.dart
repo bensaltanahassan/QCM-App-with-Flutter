@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:qcmapp/binding.dart';
 import 'package:qcmapp/core/services/services.dart';
 import 'package:qcmapp/routes.dart';
-import 'package:qcmapp/view/screens/onboarding/onboarding.dart';
+import 'package:qcmapp/view/screens/guest/informationguset.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,21 +24,56 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
           primarySwatch: Colors.blue,
-          textTheme: const TextTheme(
-            bodyText1: TextStyle(
+          textTheme: TextTheme(
+            bodyText1: const TextStyle(
               fontFamily: "Cairo",
               fontSize: 14,
               color: Colors.black,
               height: 2,
             ),
-            headline1: TextStyle(
+            bodyText2: const TextStyle(
+              fontFamily: "Cairo",
+              fontSize: 20,
+              color: Colors.white,
+              height: 2,
+            ),
+            headline1: const TextStyle(
               fontFamily: "Cairo",
               fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
+            headline2: const TextStyle(
+              fontFamily: "Cairo",
+              fontSize: 30,
+              color: Colors.black,
+            ),
+            headline3: TextStyle(
+              fontFamily: "Cairo",
+              fontSize: 35,
+              letterSpacing: 3,
+              fontWeight: FontWeight.bold,
+              color: Colors.green[900],
+            ),
+            headline4: const TextStyle(
+              fontFamily: "Cairo",
+              fontSize: 20,
+              letterSpacing: 1,
+              color: Colors.black87,
+            ),
+            headline5: const TextStyle(
+              fontFamily: "Cairo",
+              fontSize: 15,
+              color: Colors.blue,
+            ),
+            headline6: const TextStyle(
+              fontFamily: "Cairo",
+              fontSize: 15,
+              color: Colors.black,
+            ),
           )),
       getPages: routes,
+      // home: const InformationGuest(),
       initialBinding: MyBinding(),
     );
   }

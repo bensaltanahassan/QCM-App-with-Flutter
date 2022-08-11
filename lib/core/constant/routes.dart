@@ -11,4 +11,10 @@ class AppRoutes {
   static const String succesResetPassword = "/succesResetPassword";
   static const String verifycodeSignUp = "/verifycodesignup";
   static const String welcome = "/welcome";
+  static const String home = "/home";
+  static const String chooseschool = "/chooseschool";
+  static const String choosecategorie = "/choosecategorie";
+  static const String question = "/question";
+  static const String score = "/score";
+  static const String informationsguest = "/informationsguest";
 }

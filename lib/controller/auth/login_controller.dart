@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qcmapp/core/constant/routes.dart';
+import 'package:unicons/unicons.dart';
 
 abstract class LoginController extends GetxController {
   login();
   goToForgetPassword();
   goToSignUp();
   changeObscurity();
-  onChangeText();
 }
 
 class LoginControllerImp extends LoginController {
@@ -15,12 +15,8 @@ class LoginControllerImp extends LoginController {
 
   late TextEditingController emailController;
   late TextEditingController passwordController;
-  late TextEditingController confirmPasswordController;
-  late TextEditingController usernameController;
-  late TextEditingController phoneController;
-
   bool isPassword = true;
-  late Widget? suffixIcon; //for password show/hidden
+  late Widget? suffixIcon;
 
   @override
   login() {
@@ -36,30 +32,16 @@ class LoginControllerImp extends LoginController {
 
   @override
   goToForgetPassword() {
-    Get.offNamed(AppRoutes.forgetPassword);
+    Get.toNamed(AppRoutes.forgetPassword);
   }
 
   @override
   changeObscurity() {
     isPassword = !isPassword;
-    suffixIcon = isPassword == true
-        ? const Icon(Icons.remove_red_eye_outlined)
-        : const Icon(Icons.remove_red_eye_rounded);
+    suffixIcon = isPassword == false
+        ? const Icon(UniconsLine.eye)
+        : const Icon(UniconsLine.eye_slash);
 
-    update();
-  }
-
-  @override
-  onChangeText() {
-    if (passwordController.text.isEmpty) {
-      suffixIcon = const Icon(Icons.lock_outline);
-    } else {
-      if (isPassword == true) {
-        suffixIcon = const Icon(Icons.remove_red_eye_outlined);
-      } else {
-        suffixIcon = const Icon(Icons.remove_red_eye_rounded);
-      }
-    }
     update();
   }
 
@@ -67,10 +49,7 @@ class LoginControllerImp extends LoginController {
   void onInit() {
     emailController = TextEditingController();
     passwordController = TextEditingController();
-    phoneController = TextEditingController();
-    confirmPasswordController = TextEditingController();
-    usernameController = TextEditingController();
-    suffixIcon = const Icon(Icons.lock_outline);
+    suffixIcon = const Icon(UniconsLine.eye_slash);
     super.onInit();
   }
 
@@ -78,9 +57,6 @@ class LoginControllerImp extends LoginController {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
-    confirmPasswordController.dispose();
-    phoneController.dispose();
-    usernameController.dispose();
     super.dispose();
   }
 }
