@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:neon_circular_timer/neon_circular_timer.dart';
 import 'package:qcmapp/controller/home/question_controller.dart';
 import 'package:qcmapp/core/constant/colors.dart';
+import 'package:qcmapp/view/widgets/auth/custombuttonauth.dart';
 import 'package:qcmapp/view/widgets/question/customcardanswer.dart';
 import 'package:qcmapp/view/widgets/question/questiontext.dart';
 
@@ -19,7 +20,7 @@ class Questions extends StatelessWidget {
         child: GetBuilder<QuestionController>(builder: (controler) {
           if (controler.loadingQuestions) {
             return const Center(
-              child: SingleChildScrollView(),
+              child: CircularProgressIndicator(),
             );
           } else {
             controler.getCategory(0);
@@ -119,7 +120,18 @@ class Questions extends StatelessWidget {
                                         ],
                                       )))
                             ]),
-                          )
+                          ),
+                          indexQst == 9
+                              ? CustomButtonAuth(
+                                  text: "finish",
+                                  textColor: Colors.blue,
+                                  onPressed: () {
+                                    controler.nextQuestion();
+                                  },
+                                  withButton: 150,
+                                  color: Colors.white,
+                                )
+                              : const SizedBox()
                         ],
                       ),
                     );
