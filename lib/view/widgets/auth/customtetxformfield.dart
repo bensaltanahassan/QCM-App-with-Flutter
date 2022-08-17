@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qcmapp/core/constant/colors.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField(
@@ -26,8 +27,8 @@ class CustomTextFormField extends StatelessWidget {
     return Row(
       children: [
         icon!,
-        const SizedBox(
-          width: 10,
+        SizedBox(
+          width: getWith(10),
         ),
         Expanded(
           child: TextFormField(

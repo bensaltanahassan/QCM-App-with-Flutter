@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:qcmapp/controller/auth/verifycodesignup_controller.dart';
-import 'package:qcmapp/core/constant/routes.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 import 'package:qcmapp/view/widgets/auth/custombuttonauth.dart';
 
 class VerifyCodeSignUp extends StatelessWidget {
@@ -30,27 +30,23 @@ class VerifyCodeSignUp extends StatelessWidget {
       ),
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+          padding: EdgeInsets.only(
+              left: getWith(20), right: getWith(20), bottom: getHeight(20)),
           children: [
-            Image.asset(
-              "assets/images/img4.png",
-              width: 150,
-              height: 200,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
+            Image.asset("assets/images/img4.png",
+                width: getWith(150), height: getHeight(200)),
+            SizedBox(height: getHeight(30)),
             const Text(
               "Enter OTP",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: getHeight(30)),
             Text(
               "An 5 digit code has been sent to\n${controller.email}",
               style:
                   TextStyle(height: 1.5, color: Colors.grey[800], fontSize: 17),
             ),
-            const SizedBox(height: 40),
+            SizedBox(height: getHeight(40)),
             OtpTextField(
               numberOfFields: 5,
               borderColor: const Color(0xFF512DA8),
@@ -62,12 +58,12 @@ class VerifyCodeSignUp extends StatelessWidget {
                 controller.verifyCode = verificationCode;
               }, // end onSubmit
             ),
-            const SizedBox(height: 40),
+            SizedBox(height: getHeight(40)),
             CustomButtonAuth(
               text: "Resend",
               onPressed: () {},
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: getHeight(10)),
             CustomButtonAuth(
               onPressed: () {
                 controller.checkCode();

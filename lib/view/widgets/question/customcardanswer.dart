@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 
 class CustomCardAnswer extends StatelessWidget {
   const CustomCardAnswer({
@@ -21,7 +22,7 @@ class CustomCardAnswer extends StatelessWidget {
           onTap: onTap,
           child: Container(
             alignment: Alignment.center,
-            height: 70,
+            height: getHeight(70),
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),

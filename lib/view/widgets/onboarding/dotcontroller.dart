@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qcmapp/controller/onboarding/onboarding_controller.dart';
 import 'package:qcmapp/core/constant/colors.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 import 'package:qcmapp/data/datasource/static/static.dart';
 
 class CustomDotControllerOnBoarding extends StatelessWidget {
@@ -19,8 +20,9 @@ class CustomDotControllerOnBoarding extends StatelessWidget {
               return AnimatedContainer(
                 margin: const EdgeInsets.only(right: 5),
                 duration: const Duration(milliseconds: 600),
-                width: controller.currentPage == index ? 20 : 5,
-                height: 6,
+                width:
+                    controller.currentPage == index ? getWith(20) : getWith(5),
+                height: getHeight(6),
                 decoration: BoxDecoration(
                   color: AppColors.grey,
                   borderRadius: BorderRadius.circular(10),

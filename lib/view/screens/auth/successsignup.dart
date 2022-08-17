@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:qcmapp/core/constant/imageassets.dart';
 import 'package:qcmapp/core/constant/routes.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 import 'package:qcmapp/view/widgets/auth/custombuttonauth.dart';
 
 class SuccessSignUp extends StatelessWidget {
@@ -15,13 +16,10 @@ class SuccessSignUp extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            const SizedBox(
-              height: 20,
-            ),
-            Lottie.asset(AppImageAsset.success, height: 300, width: 300),
-            const SizedBox(
-              height: 100,
-            ),
+            SizedBox(height: getHeight(20)),
+            Lottie.asset(AppImageAsset.success,
+                height: getHeight(300), width: getWith(300)),
+            SizedBox(height: getHeight(100)),
             Text("Sign Up with success",
                 style: Theme.of(context).textTheme.headline2),
             Text("Welcome To QCM App",
@@ -33,9 +31,7 @@ class SuccessSignUp extends StatelessWidget {
               },
               text: "Continue",
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: getHeight(20)),
           ],
         ),
       ),

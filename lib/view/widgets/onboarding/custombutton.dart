@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qcmapp/controller/onboarding/onboarding_controller.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 
 class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
   const CustomButtonOnBoarding({Key? key}) : super(key: key);
@@ -9,14 +10,14 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
   Widget build(BuildContext context) {
     return GetBuilder<OnBoardingControllerImp>(builder: (context) {
       return Container(
-        width: 300,
+        width: getWith(300),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Colors.blue,
         ),
-        margin: const EdgeInsets.only(bottom: 30),
+        margin: EdgeInsets.only(bottom: getHeight(30)),
         child: MaterialButton(
-          padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 0),
+          padding: EdgeInsets.symmetric(horizontal: getWith(100)),
           onPressed: () {
             controller.next();
           },

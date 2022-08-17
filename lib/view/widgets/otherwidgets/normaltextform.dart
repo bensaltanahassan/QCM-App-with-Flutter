@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 
 class NormalTextFormField extends StatelessWidget {
   const NormalTextFormField(
@@ -14,7 +15,8 @@ class NormalTextFormField extends StatelessWidget {
       controller: controller,
       validator: validator,
       decoration: InputDecoration(
-          constraints: const BoxConstraints(maxHeight: 80, maxWidth: 300),
+          constraints:
+              BoxConstraints(maxHeight: getHeight(80), maxWidth: getWith(300)),
           labelText: labelText,
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),

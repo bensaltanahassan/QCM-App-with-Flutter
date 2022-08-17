@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
@@ -19,8 +20,8 @@ class CustomCard extends StatelessWidget {
       child: Container(
         // height: 100,
         width: double.infinity,
-        constraints: const BoxConstraints(minHeight: 100),
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        constraints: BoxConstraints(minHeight: getHeight(100)),
+        padding: EdgeInsets.symmetric(horizontal: getWith(20)),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
           color: Colors.blue[50],

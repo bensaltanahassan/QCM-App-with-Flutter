@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qcmapp/controller/auth/signup_controller.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 import 'package:qcmapp/core/functions/validtextformfield/validinput.dart';
 import 'package:qcmapp/view/widgets/auth/custombuttonauth.dart';
 import 'package:qcmapp/view/widgets/auth/customtetxformfield.dart';
@@ -23,22 +24,22 @@ class SignUp extends StatelessWidget {
             child: Form(
               key: controller.formState,
               child: ListView(
-                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+                padding: EdgeInsets.only(
+                    left: getWith(20),
+                    right: getWith(20),
+                    bottom: getHeight(20)),
                 children: [
-                  Image.asset(
-                    "assets/images/img2.png",
-                    width: 150,
-                    height: 180,
-                  ),
-                  const SizedBox(
-                    height: 10,
+                  Image.asset("assets/images/img2.png",
+                      width: getWith(150), height: getHeight(180)),
+                  SizedBox(
+                    height: getHeight(10),
                   ),
                   Text("Sign Up", style: Theme.of(context).textTheme.headline2),
-                  const SizedBox(height: 20),
+                  SizedBox(height: getHeight(20)),
                   CustomTextFormField(
                     controller: controller.emailController,
                     validator: (p0) {
-                      return validInput(p0!, 8, 30, "email");
+                      return validInput(p0!, 8, 50, "email");
                     },
                     icon: Icon(
                       Icons.alternate_email,
@@ -47,11 +48,11 @@ class SignUp extends StatelessWidget {
                     labelText: "Email",
                     hintText: "Email",
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: getHeight(10)),
                   CustomTextFormField(
                     controller: controller.nameController,
                     validator: (p0) {
-                      return validInput(p0!, 6, 20, "text");
+                      return validInput(p0!, 6, 30, "text");
                     },
                     icon: Icon(
                       Icons.person_outline,
@@ -60,10 +61,10 @@ class SignUp extends StatelessWidget {
                     labelText: "Full name",
                     hintText: "Full name",
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: getHeight(10)),
                   CustomTextFormField(
                     controller: controller.passwordController,
-                    validator: (p0) => validInput(p0!, 6, 20, "password"),
+                    validator: (p0) => validInput(p0!, 6, 30, "password"),
                     icon: Icon(
                       Icons.lock_outline,
                       color: Colors.grey[700],
@@ -73,7 +74,7 @@ class SignUp extends StatelessWidget {
                     suffixIcon: controller.suffixIconPassword,
                     isPassword: controller.isPassword1,
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: getHeight(15)),
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
                     child: Column(
@@ -90,9 +91,7 @@ class SignUp extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 8,
-                        ),
+                        SizedBox(height: getHeight(8)),
                         Row(
                           children: [
                             Text(
@@ -108,18 +107,14 @@ class SignUp extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: getHeight(10)),
                   CustomButtonAuth(
                     text: "Continue",
                     onPressed: () {
                       controller.signUp();
                     },
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: getHeight(20)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qcmapp/core/constant/colors.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 
 class CustomButtonAuth extends StatelessWidget {
   const CustomButtonAuth(
@@ -29,9 +30,9 @@ class CustomButtonAuth extends StatelessWidget {
             boxShadow: [
               BoxShadow(color: borderColor ?? Colors.blue, spreadRadius: 1),
             ]),
-        height: 40,
+        height: getHeight(40),
         alignment: Alignment.center,
-        width: withButton ?? 300,
+        width: withButton ?? getWith(300),
         child: Text(
           text!,
           style: TextStyle(color: textColor ?? Colors.white, fontSize: 16),

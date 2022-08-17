@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qcmapp/controller/guest/informationguest_controller.dart';
 import 'package:qcmapp/core/constant/colors.dart';
-import 'package:qcmapp/core/constant/imageassets.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 import 'package:qcmapp/core/functions/validtextformfield/validinput.dart';
 import 'package:qcmapp/data/datasource/exemples/avatar.dart';
 import 'package:qcmapp/view/widgets/auth/custombuttonauth.dart';
@@ -22,14 +22,12 @@ class InformationGuest extends StatelessWidget {
             key: controller.formState,
             child: Column(
               children: [
-                const SizedBox(
-                  height: 70,
-                ),
+                SizedBox(height: getHeight(70)),
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  padding: const EdgeInsets.only(top: 10),
+                  margin: EdgeInsets.symmetric(horizontal: getWith(20)),
+                  padding: EdgeInsets.only(top: getHeight(10)),
                   width: double.infinity,
-                  height: 500,
+                  height: getHeight(500),
                   decoration: BoxDecoration(
                     color: Colors.blue[100],
                     borderRadius: BorderRadius.circular(20),
@@ -41,12 +39,10 @@ class InformationGuest extends StatelessWidget {
                         "Welcome",
                         style: Theme.of(context).textTheme.headline3,
                       ),
-                      const SizedBox(height: 10),
-                      Text(
-                        "Please Enter your name",
-                        style: Theme.of(context).textTheme.headline4,
-                      ),
-                      const SizedBox(height: 60),
+                      SizedBox(height: getHeight(10)),
+                      Text("Please Enter your name",
+                          style: Theme.of(context).textTheme.headline4),
+                      SizedBox(height: getHeight(60)),
                       NormalTextFormField(
                         labelText: "Name",
                         controller: controller.nameController,
@@ -54,13 +50,11 @@ class InformationGuest extends StatelessWidget {
                           return validInput(val!, 3, 40, "text");
                         },
                       ),
-                      const SizedBox(height: 20),
-                      Text(
-                        "Choose Avatar",
-                        style:
-                            TextStyle(color: Colors.green[900], fontSize: 28),
-                      ),
-                      const SizedBox(height: 50),
+                      SizedBox(height: getHeight(20)),
+                      Text("Choose Avatar",
+                          style: TextStyle(
+                              color: Colors.green[900], fontSize: 28)),
+                      SizedBox(height: getHeight(50)),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
@@ -72,14 +66,14 @@ class InformationGuest extends StatelessWidget {
                                   ? Colors.blue
                                   : null,
                               margin:
-                                  const EdgeInsets.symmetric(horizontal: 10),
+                                  EdgeInsets.symmetric(horizontal: getWith(10)),
                               child: InkWell(
                                 onTap: () {
                                   controller.chooseAvatar(index);
                                 },
                                 child: Image.asset(
                                   AppAvatar.avatars[index],
-                                  width: 60,
+                                  width: getWith(60),
                                 ),
                               ),
                             ),

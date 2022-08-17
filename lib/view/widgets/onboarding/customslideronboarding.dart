@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qcmapp/controller/onboarding/onboarding_controller.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 import 'package:qcmapp/data/datasource/static/static.dart';
 
 class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
@@ -20,20 +21,16 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
         children: [
           Image.asset(
             onBoardingList[index].image!,
-            width: 250,
-            height: 260,
+            width: getWith(250),
+            height: getHeight(260),
             fit: BoxFit.fill,
           ),
-          const SizedBox(
-            height: 40,
-          ),
+          SizedBox(height: getHeight(40)),
           Text(
             onBoardingList[index].title!,
             style: Theme.of(context).textTheme.headline1,
           ),
-          const SizedBox(
-            height: 30,
-          ),
+          SizedBox(height: getHeight(30)),
           Text(
             onBoardingList[index].body!,
             style: Theme.of(context).textTheme.bodyText1,

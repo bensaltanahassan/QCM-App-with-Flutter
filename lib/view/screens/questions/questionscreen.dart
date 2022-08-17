@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:neon_circular_timer/neon_circular_timer.dart';
 import 'package:qcmapp/controller/home/question_controller.dart';
 import 'package:qcmapp/core/constant/colors.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 import 'package:qcmapp/view/widgets/auth/custombuttonauth.dart';
 import 'package:qcmapp/view/widgets/question/customcardanswer.dart';
 import 'package:qcmapp/view/widgets/question/questiontext.dart';
@@ -27,8 +28,8 @@ class Questions extends StatelessWidget {
             return Stack(
               children: [
                 Positioned(
-                  top: 40,
-                  left: 10,
+                  top: getHeight(40),
+                  left: getWith(10),
                   child: Text(
                     controler.category,
                     textAlign: TextAlign.left,
@@ -36,10 +37,10 @@ class Questions extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  right: 20,
-                  top: 30,
+                  right: getWith(20),
+                  top: getHeight(30),
                   child: NeonCircularTimer(
-                    width: 90,
+                    width: getWith(90),
                     textStyle: Theme.of(context).textTheme.headline1,
                     duration: 3600,
                     backgroudColor: Colors.blue[100],
@@ -65,7 +66,7 @@ class Questions extends StatelessWidget {
                       child: ListView(
                         children: [
                           //TODO
-                          const SizedBox(height: 80),
+                          SizedBox(height: getHeight(80)),
                           Text.rich(
                             TextSpan(
                                 text: "Question ${indexQst + 1}",
@@ -79,15 +80,14 @@ class Questions extends StatelessWidget {
                                   )
                                 ]),
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: getHeight(10)),
                           const Divider(color: Colors.black),
-                          const SizedBox(height: 30),
+                          SizedBox(height: getHeight(30)),
                           Question(question: controler.question),
-                          const SizedBox(
-                            height: 30,
-                          ),
+                          SizedBox(height: getHeight(30)),
                           Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 20),
+                            margin:
+                                EdgeInsets.symmetric(horizontal: getWith(20)),
                             child: Column(children: [
                               ...List.generate(
                                   4,
@@ -114,9 +114,7 @@ class Questions extends StatelessWidget {
                                                   indexOpt, indexQst);
                                             },
                                           ),
-                                          const SizedBox(
-                                            height: 20,
-                                          ),
+                                          SizedBox(height: getHeight(20)),
                                         ],
                                       )))
                             ]),

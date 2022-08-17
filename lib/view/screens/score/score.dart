@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:qcmapp/controller/home/score_controller.dart';
 import 'package:qcmapp/core/constant/colors.dart';
 import 'package:qcmapp/core/constant/imageassets.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 
 class Score extends StatelessWidget {
   const Score({Key? key}) : super(key: key);
@@ -18,10 +19,10 @@ class Score extends StatelessWidget {
                   clipBehavior: Clip.none,
                   children: <Widget>[
                     Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 20),
-                      padding: const EdgeInsets.only(top: 70),
+                      margin: EdgeInsets.symmetric(horizontal: getWith(20)),
+                      padding: EdgeInsets.only(top: getHeight(70)),
                       width: double.infinity,
-                      height: 500,
+                      height: getHeight(500),
                       decoration: BoxDecoration(
                         color: Colors.blue[100],
                         borderRadius: BorderRadius.circular(20),
@@ -34,8 +35,8 @@ class Score extends StatelessWidget {
                             children: [
                               Image.asset(
                                 AppImageAsset.champion,
-                                width: 90,
-                                height: 90,
+                                width: getWith(90),
+                                height: getWith(90),
                               ),
                               Text(
                                 "Your Score : ${Get.parameters["score"]}",
@@ -44,33 +45,33 @@ class Score extends StatelessWidget {
                               )
                             ],
                           ),
-                          const SizedBox(height: 130),
+                          SizedBox(height: getHeight(130)),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              const SizedBox(width: 10),
+                              SizedBox(width: getWith(10)),
                               InkWell(
-                                child:
-                                    Image.asset(AppImageAsset.home, width: 70),
+                                child: Image.asset(AppImageAsset.home,
+                                    width: getWith(70)),
                                 onTap: () {
                                   controller.goToHome();
                                 },
                               ),
                               InkWell(
                                 child: Image.asset(AppImageAsset.repeat,
-                                    width: 70),
+                                    width: getWith(70)),
                                 onTap: () {
                                   controller.repeat();
                                 },
                               ),
                               InkWell(
                                 child: Image.asset(AppImageAsset.logout,
-                                    width: 70),
+                                    width: getWith(70)),
                                 onTap: () {
                                   controller.exitApp();
                                 },
                               ),
-                              const SizedBox(width: 10),
+                              SizedBox(width: getHeight(10)),
                             ],
                           )
                         ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qcmapp/controller/auth/forgetpassword/forgetpassword_controller.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 import 'package:qcmapp/core/functions/validtextformfield/validinput.dart';
 import 'package:qcmapp/view/widgets/auth/custombuttonauth.dart';
 import 'package:qcmapp/view/widgets/auth/customtetxformfield.dart';
@@ -32,27 +33,30 @@ class ForgetPassword extends StatelessWidget {
             child: Form(
               key: controller.formState,
               child: ListView(
-                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                padding: EdgeInsets.only(
+                    left: getWith(20),
+                    right: getWith(20),
+                    bottom: getHeight(20)),
                 children: [
                   Image.asset(
                     "assets/images/img3.png",
-                    width: 150,
-                    height: 220,
+                    width: getWith(150),
+                    height: getHeight(220),
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: getHeight(30),
                   ),
                   const Text(
                     "Forgot\nPassword ?",
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(height: 30),
+                  SizedBox(height: getHeight(30)),
                   Text(
                     "Don't worry! it happens. Please enter the \naddress associated with your account .",
                     style: TextStyle(
                         height: 1.5, color: Colors.grey[800], fontSize: 17),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: getHeight(20)),
                   CustomTextFormField(
                     controller: controller.emailController,
                     validator: (p0) => validInput(p0!, 8, 40, "email"),
@@ -63,8 +67,8 @@ class ForgetPassword extends StatelessWidget {
                     labelText: "Email ID",
                     hintText: "Email",
                   ),
-                  const SizedBox(
-                    height: 40,
+                  SizedBox(
+                    height: getHeight(40),
                   ),
                   CustomButtonAuth(
                     onPressed: () {

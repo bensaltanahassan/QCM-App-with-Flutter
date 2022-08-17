@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qcmapp/controller/auth/forgetpassword/resetpassword_controller.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 import 'package:qcmapp/core/functions/validtextformfield/notsamepassword.dart';
 import 'package:qcmapp/core/functions/validtextformfield/validinput.dart';
 import 'package:qcmapp/view/widgets/auth/custombuttonauth.dart';
@@ -10,6 +11,7 @@ class ResetPassword extends StatelessWidget {
   const ResetPassword({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    //TODO
     String? email = Get.parameters["email"];
     Get.put(ResetPasswordControllerImp());
 
@@ -34,21 +36,20 @@ class ResetPassword extends StatelessWidget {
           child: Form(
             key: controller.formState,
             child: ListView(
-              padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+              padding: EdgeInsets.only(
+                  left: getWith(20), right: getWith(20), bottom: getHeight(20)),
               children: [
                 Image.asset(
                   "assets/images/img5.png",
-                  width: 150,
-                  height: 220,
+                  width: getWith(150),
+                  height: getHeight(220),
                 ),
-                const SizedBox(
-                  height: 30,
-                ),
+                SizedBox(height: getHeight(20)),
                 const Text(
                   "Reset\nPassword",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: getHeight(20)),
                 CustomTextFormField(
                   controller: controller.passwordController,
                   icon: const Icon(Icons.lock_outline),
@@ -65,7 +66,7 @@ class ResetPassword extends StatelessWidget {
                   },
                   isPassword: controller.isPassword1,
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: getHeight(20)),
                 CustomTextFormField(
                   icon: const Icon(Icons.lock_outline),
                   labelText: "Confirm new password",
@@ -83,9 +84,7 @@ class ResetPassword extends StatelessWidget {
                   ),
                   isPassword: controller.isPassword2,
                 ),
-                const SizedBox(
-                  height: 40,
-                ),
+                SizedBox(height: getHeight(40)),
                 CustomButtonAuth(
                   onPressed: () {
                     controller.resetPassword();

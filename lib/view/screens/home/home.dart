@@ -4,6 +4,7 @@ import 'package:qcmapp/controller/home/home_controller.dart';
 import 'package:qcmapp/core/classes/handlingdataview.dart';
 import 'package:qcmapp/core/constant/colors.dart';
 import 'package:qcmapp/core/constant/imageassets.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 import 'package:qcmapp/view/widgets/auth/custombuttonauth.dart';
 
 class Home extends StatelessWidget {
@@ -22,10 +23,10 @@ class Home extends StatelessWidget {
                     clipBehavior: Clip.none,
                     children: <Widget>[
                       Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 20),
-                        padding: const EdgeInsets.only(top: 70),
+                        margin: EdgeInsets.symmetric(horizontal: getWith(20)),
+                        padding: EdgeInsets.only(top: getHeight(70)),
                         width: double.infinity,
-                        height: 500,
+                        height: getHeight(500),
                         decoration: BoxDecoration(
                           color: Colors.blue[100],
                           borderRadius: BorderRadius.circular(20),
@@ -41,23 +42,23 @@ class Home extends StatelessWidget {
                                   fontSize: 28,
                                   color: Colors.black),
                             ),
-                            const SizedBox(height: 100),
+                            SizedBox(height: getHeight(100)),
                             CustomButtonAuth(
-                              withButton: 200,
+                              withButton: getWith(200),
                               text: "Commencer",
                               onPressed: () {
                                 controller.goToSchools();
                               },
                             ),
-                            const SizedBox(height: 20),
+                            SizedBox(height: getHeight(20)),
                             CustomButtonAuth(
-                              withButton: 200,
+                              withButton: getWith(200),
                               text: "About us",
                               onPressed: () {},
                             ),
-                            const SizedBox(height: 20),
+                            SizedBox(height: getHeight(20)),
                             CustomButtonAuth(
-                              withButton: 200,
+                              withButton: getWith(200),
                               text: "Exit",
                               onPressed: () {},
                             ),
@@ -66,11 +67,11 @@ class Home extends StatelessWidget {
                       ),
                       Positioned(
                         top: -45,
-                        left: Get.width / 2 - 45,
+                        left: Get.width / 2 - getWith(45),
                         child: Image.asset(
                           "${AppImageAsset.rootImages}/${controller.avatar}.png",
-                          width: 90,
-                          height: 90,
+                          width: getWith(90),
+                          height: getWith(90),
                         ),
                       ),
                     ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 
 class CustomButtonSignWith extends StatelessWidget {
   const CustomButtonSignWith({Key? key, this.text, this.icon})
@@ -13,9 +14,9 @@ class CustomButtonSignWith extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: Colors.grey.shade200),
-        height: 40,
+        height: getHeight(10),
         alignment: Alignment.center,
-        width: 300,
+        width: getWith(300),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceAround,

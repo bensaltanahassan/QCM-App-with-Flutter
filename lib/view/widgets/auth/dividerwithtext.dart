@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 
 class DividerWithText extends StatelessWidget {
   const DividerWithText({Key? key}) : super(key: key);
@@ -8,22 +9,22 @@ class DividerWithText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Expanded(
+        Expanded(
           child: Divider(
             thickness: 0.5,
-            height: 3,
+            height: getHeight(3),
             color: Colors.black,
           ),
         ),
         Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: getHeight(20)),
             child: Text(
               "OR",
               style: TextStyle(fontSize: 18, color: Colors.grey[700]),
             )),
-        const Expanded(
+        Expanded(
           child: Divider(
-            height: 3,
+            height: getHeight(3),
             thickness: 0.5,
             color: Colors.black,
           ),

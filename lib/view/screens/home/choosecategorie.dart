@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qcmapp/controller/home/categories_controller.dart';
+import 'package:qcmapp/core/functions/getdimension.dart';
 import 'package:qcmapp/data/datasource/exemples/staticdata.dart';
 import 'package:qcmapp/view/widgets/categories/customcard.dart';
 
@@ -23,19 +24,17 @@ class ChooseCategorie extends StatelessWidget {
                 color: Colors.blue[100],
               ),
               Positioned(
-                left: Get.width / 2 - 45,
+                left: Get.width / 2 - getWith(45),
                 bottom: -45,
                 child: Image.asset(
                   controller.avatar!,
-                  width: 90,
-                  height: 90,
+                  width: getWith(90),
+                  height: getWith(90),
                 ),
               ),
             ],
           ),
-          const SizedBox(
-            height: 70,
-          ),
+          SizedBox(height: getHeight(70)),
           Text(
             "Choose Categorie",
             textAlign: TextAlign.center,
@@ -43,12 +42,12 @@ class ChooseCategorie extends StatelessWidget {
           ),
           Expanded(
             child: SizedBox(
-              width: 300,
+              width: getWith(300),
               child: ListView.separated(
                 itemCount: categories.length,
                 separatorBuilder: (BuildContext context, int index) {
-                  return const SizedBox(
-                    height: 40,
+                  return SizedBox(
+                    height: getHeight(40),
                   );
                 },
                 itemBuilder: (BuildContext context, int index) {
