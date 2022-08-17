@@ -1,8 +1,8 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:qcmapp/binding.dart';
 import 'package:qcmapp/core/constant/routes.dart';
 import 'package:qcmapp/core/middleware/mymiddleware.dart';
 import 'package:qcmapp/view/screens/auth/forgetpassword/forgetpassword.dart';
+import 'package:qcmapp/view/screens/auth/forgetpassword/successresetpasswor.dart';
 import 'package:qcmapp/view/screens/auth/login.dart';
 import 'package:qcmapp/view/screens/auth/forgetpassword/resetpassword.dart';
 import 'package:qcmapp/view/screens/auth/signup.dart';
@@ -37,7 +37,8 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.forgetPassword, page: () => const ForgetPassword()),
   GetPage(name: AppRoutes.resetPassword, page: () => const ResetPassword()),
   GetPage(
-      name: AppRoutes.succesResetPassword, page: () => const SuccessSignUp()),
+      name: AppRoutes.succesResetPassword,
+      page: () => const SuccessResetPassword()),
   GetPage(
       name: AppRoutes.verifycoderesetpassword,
       page: () => const VerifyOtpForgetPassword()),

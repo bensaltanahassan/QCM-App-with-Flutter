@@ -49,7 +49,7 @@ class HomeControllerImp extends HomeController {
         if (response is Map) {
           data.addAll(response["data"]);
           name = data[0]["users_name"];
-          avatar = data[0]["users_avatar"];
+          avatar = "${data[0]["users_avatar"]}.png";
         }
       }
     }

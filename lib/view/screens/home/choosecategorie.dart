@@ -20,7 +20,7 @@ class ChooseCategorie extends StatelessWidget {
             clipBehavior: Clip.none,
             children: [
               Container(
-                height: 90,
+                height: getHeight(90),
                 color: Colors.blue[100],
               ),
               Positioned(

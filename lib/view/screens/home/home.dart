@@ -69,7 +69,9 @@ class Home extends StatelessWidget {
                         top: -45,
                         left: Get.width / 2 - getWith(45),
                         child: Image.asset(
-                          "${AppImageAsset.rootImages}/${controller.avatar}.png",
+                          controller.loginAsGuest == 0
+                              ? "${AppImageAsset.rootImages}/${controller.avatar}.png"
+                              : controller.avatar!,
                           width: getWith(90),
                           height: getWith(90),
                         ),

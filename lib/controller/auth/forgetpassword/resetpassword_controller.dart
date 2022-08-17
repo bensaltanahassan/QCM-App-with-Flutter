@@ -47,7 +47,15 @@ class ResetPasswordControllerImp extends ResetPasswordController {
         if (response is Map) {
           if (response["status"] == "success") {
             Get.offAllNamed(AppRoutes.succesResetPassword);
-          } else {}
+          } else {
+            Get.snackbar(
+              "Password",
+              "Please enter an different password than previous one",
+              duration: const Duration(seconds: 2),
+              animationDuration: const Duration(seconds: 1),
+              backgroundColor: Colors.blue[200],
+            );
+          }
         }
       }
     } else {}
