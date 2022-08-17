@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qcmapp/binding.dart';
+import 'package:qcmapp/view/screens/auth/successsignup.dart';
 import 'package:qcmapp/core/services/services.dart';
 import 'package:qcmapp/routes.dart';
 
@@ -71,7 +72,7 @@ class MyApp extends StatelessWidget {
             ),
           )),
       getPages: routes,
-      // home: const InformationGuest(),
+      // home: const SuccessSignUp(),
       initialBinding: MyBinding(),
     );
   }

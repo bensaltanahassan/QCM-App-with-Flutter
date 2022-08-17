@@ -31,6 +31,7 @@ class InformationController extends GetxController {
     name = nameController.text;
     myServices.sharedPreferences.setString("login", "1");
     myServices.sharedPreferences.setString("name", "$name");
+    myServices.sharedPreferences.setInt("loginasguest", 1);
     myServices.sharedPreferences
         .setString("avatar", AppAvatar.avatars[indexAvatar!]);
   }

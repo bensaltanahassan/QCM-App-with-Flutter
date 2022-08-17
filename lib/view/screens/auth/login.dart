@@ -14,6 +14,7 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(LoginControllerImp());
     return Scaffold(
       body: GetBuilder<LoginControllerImp>(
         builder: (controller) => SafeArea(
@@ -79,8 +80,8 @@ class Login extends StatelessWidget {
                   height: 20,
                 ),
                 CustomButtonAuth(
-                  onPressed: () {
-                    controller.login();
+                  onPressed: () async {
+                    await controller.login();
                   },
                   text: "Login",
                 ),

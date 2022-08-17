@@ -6,29 +6,26 @@ import 'package:qcmapp/core/constant/links.dart';
 import 'package:qcmapp/core/constant/routes.dart';
 import 'package:qcmapp/core/functions/handlingdatacontroller.dart';
 
-abstract class VerifyCodeForgetPasswordController extends GetxController {
+abstract class VerifyCodeSignUpController extends GetxController {
   checkCode();
-  goToResetPassword();
   resendCode();
-  getInfoUser();
 }
 
-class VerifyCodeForgetPasswordControllerImp
-    extends VerifyCodeForgetPasswordController {
-  late String verifyCode;
-  late StatusRequest statusRequest;
+class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
+  String? verifyCode;
   Crud crud = Crud();
-  String? email = "";
+  late StatusRequest statusRequest;
+
+  String? email;
 
   @override
   checkCode() async {
     statusRequest = StatusRequest.loading;
-    var response = await crud.postData(AppLinks.verifycodepassword, {
+    var response = await crud.postData(AppLinks.verifycode, {
       "email": email,
       "verifycode": verifyCode,
     }).then((value) => value.fold((l) => l, (r) => r));
     statusRequest = handlingData(response);
-
     if (statusRequest == StatusRequest.sucess) {
       if (response is Map) {
         if (response["status"] == "failure") {
@@ -40,8 +37,7 @@ class VerifyCodeForgetPasswordControllerImp
             backgroundColor: Colors.blue[200],
           );
         } else {
-          Get.offAllNamed(AppRoutes.resetPassword,
-              parameters: {"email": email!});
+          Get.offAllNamed(AppRoutes.successSignUp);
         }
       }
     }
@@ -50,20 +46,15 @@ class VerifyCodeForgetPasswordControllerImp
   }
 
   @override
-  goToResetPassword() {
-    Get.toNamed(AppRoutes.resetPassword);
-  }
-
-  @override
-  getInfoUser() async {
-    statusRequest = StatusRequest.loading;
-    var response = crud.postData(AppLinks.info, {
-      "email": email,
-    }).then((value) => value.fold((l) => l, (r) => r));
-    statusRequest = handlingData(response);
-    if (statusRequest == StatusRequest.sucess) {}
-  }
-
-  @override
   resendCode() {}
+
+  @override
+  void onInit() {
+    super.onInit();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 }

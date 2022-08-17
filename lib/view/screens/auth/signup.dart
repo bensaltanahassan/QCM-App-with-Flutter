@@ -36,6 +36,7 @@ class SignUp extends StatelessWidget {
                   Text("Sign Up", style: Theme.of(context).textTheme.headline2),
                   const SizedBox(height: 20),
                   CustomTextFormField(
+                    controller: controller.emailController,
                     validator: (p0) {
                       return validInput(p0!, 8, 30, "email");
                     },
@@ -48,6 +49,7 @@ class SignUp extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   CustomTextFormField(
+                    controller: controller.nameController,
                     validator: (p0) {
                       return validInput(p0!, 6, 20, "text");
                     },
@@ -60,16 +62,7 @@ class SignUp extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   CustomTextFormField(
-                    validator: (p0) => validInput(p0!, 6, 20, "phone"),
-                    icon: Icon(
-                      Icons.phone_outlined,
-                      color: Colors.grey[700],
-                    ),
-                    labelText: "Mobile",
-                    hintText: "Mobile",
-                  ),
-                  const SizedBox(height: 10),
-                  CustomTextFormField(
+                    controller: controller.passwordController,
                     validator: (p0) => validInput(p0!, 6, 20, "password"),
                     icon: Icon(
                       Icons.lock_outline,
@@ -78,6 +71,7 @@ class SignUp extends StatelessWidget {
                     labelText: "Password",
                     hintText: "Password",
                     suffixIcon: controller.suffixIconPassword,
+                    isPassword: controller.isPassword1,
                   ),
                   const SizedBox(height: 15),
                   Padding(

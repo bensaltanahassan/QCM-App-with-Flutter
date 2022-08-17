@@ -1,5 +1,6 @@
 class AppImageAsset {
   static const String rootImages = "assets/images";
+  static const String rootLotties = "assets/lotties";
   //onBoarding
   static const String onBoardingImageOne = "$rootImages/onboarding1.png";
   static const String onBoardingImageTwo = "$rootImages/onboarding2.png";
@@ -37,4 +38,7 @@ class AppImageAsset {
   static const String champion = "$rootImages/champion.png";
   static const String logout = "$rootImages/logout.png";
   static const String repeat = "$rootImages/repeat.png";
+
+  //lotties
+  static const String success = "$rootLotties/successsignup.json";
 }
