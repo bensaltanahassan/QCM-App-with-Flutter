@@ -39,7 +39,10 @@ class SignUpControllerImp extends SignUpController {
         "name": nameController.text,
         "email": emailController.text,
         "password": passwordController.text,
-      }).then((value) => value.fold((l) => l, (r) => r));
+      }).then((value) {
+        print(value);
+        return value.fold((l) => l, (r) => r);
+      });
       statusRequest = handlingData(response);
       if (statusRequest == StatusRequest.sucess) {
         if (response is Map) {

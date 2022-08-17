@@ -110,7 +110,7 @@ class SignUp extends StatelessWidget {
                   SizedBox(height: getHeight(10)),
                   CustomButtonAuth(
                     text: "Continue",
-                    onPressed: () {
+                    onPressed: () async {
                       controller.signUp();
                     },
                   ),

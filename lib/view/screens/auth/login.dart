@@ -29,7 +29,7 @@ class Login extends StatelessWidget {
                     width: getWith(150), height: getHeight(150)),
                 SizedBox(height: getHeight(20)),
                 Text("Login", style: Theme.of(context).textTheme.headline2),
-                SizedBox(height: getHeight(20)),
+                SizedBox(height: getHeight(10)),
                 CustomTextFormField(
                   validator: (val) {
                     return validInput(val!, 5, 50, "email");
@@ -39,7 +39,7 @@ class Login extends StatelessWidget {
                   labelText: "Enter Your Email",
                   hintText: "Email",
                 ),
-                SizedBox(height: getHeight(20)),
+                SizedBox(height: getHeight(5)),
                 CustomTextFormField(
                   validator: (val) {
                     return validInput(val!, 8, 50, "password");
@@ -56,7 +56,7 @@ class Login extends StatelessWidget {
                     },
                   ),
                 ),
-                SizedBox(height: getHeight(20)),
+                SizedBox(height: getHeight(5)),
                 Container(
                   alignment: Alignment.topRight,
                   child: CustomTextButton(

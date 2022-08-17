@@ -38,11 +38,13 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   resetPassword() async {
     var formData = formState.currentState;
     if (formData!.validate()) {
-      var response = await crud.postData(AppLinks.resetpassword, {
-        "email": email,
-        "newpassword": passwordController.text
-      }).then((value) => value.fold((l) => l, (r) => r));
+      var response = await crud.postData(AppLinks.resetpassword,
+          {"email": email, "password": passwordController.text}).then((value) {
+        return value.fold((l) => l, (r) => r);
+      });
+
       statusRequest = handlingData(response);
+
       if (statusRequest == StatusRequest.sucess) {
         if (response is Map) {
           if (response["status"] == "success") {

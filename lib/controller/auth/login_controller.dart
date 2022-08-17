@@ -50,12 +50,12 @@ class LoginControllerImp extends LoginController {
               backgroundColor: Colors.blue[200],
             );
           } else {
-            if (await chekIfApproved(emailController.text)) {
+            bool isApproved = await chekIfApproved(emailController.text);
+            if (isApproved) {
               myServices.sharedPreferences.setString("login", "1");
               myServices.sharedPreferences.setInt("loginasguest", 0);
               myServices.sharedPreferences
                   .setString("email", emailController.text);
-
               Get.offAllNamed(AppRoutes.home);
             } else {
               Get.defaultDialog(
@@ -87,11 +87,14 @@ class LoginControllerImp extends LoginController {
   Future<bool> chekIfApproved(String email) async {
     var response = await crud.postData(AppLinks.info, {
       "email": email,
-    }).then((value) => value.fold((l) => l, (r) => r));
+    }).then((value) {
+      return value.fold((l) => l, (r) => r);
+    });
+
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.sucess) {
       if (response is Map) {
-        if (response["users_aprove"] == "1") {
+        if (response["data"][0]["users_approve"] == "1") {
           return true;
         } else {
           return false;

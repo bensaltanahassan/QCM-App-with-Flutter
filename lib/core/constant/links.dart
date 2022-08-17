@@ -1,5 +1,6 @@
 class AppLinks {
-  static const String server = "http://10.0.2.2/qcm_app";
+  static const String server =
+      "https://bensalatanahassan.000webhostapp.com/qcm_app";
   static const String login = "$server/auth/login.php";
   static const String signup = "$server/auth/signup.php";
   static const String info = "$server/users/info.php";

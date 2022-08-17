@@ -11,8 +11,6 @@ class ResetPassword extends StatelessWidget {
   const ResetPassword({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    //TODO
-    String? email = Get.parameters["email"];
     Get.put(ResetPasswordControllerImp());
 
     return Scaffold(
@@ -86,7 +84,7 @@ class ResetPassword extends StatelessWidget {
                 ),
                 SizedBox(height: getHeight(40)),
                 CustomButtonAuth(
-                  onPressed: () {
+                  onPressed: () async {
                     controller.resetPassword();
                   },
                   text: "Submit",

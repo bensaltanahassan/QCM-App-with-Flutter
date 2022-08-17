@@ -14,7 +14,7 @@ class CustomButtonSignWith extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: Colors.grey.shade200),
-        height: getHeight(10),
+        height: getHeight(40),
         alignment: Alignment.center,
         width: getWith(300),
         child: Row(
