@@ -16,13 +16,14 @@ abstract class VerifyCodeForgetPasswordController extends GetxController {
 class VerifyCodeForgetPasswordControllerImp
     extends VerifyCodeForgetPasswordController {
   late String verifyCode;
-  late StatusRequest statusRequest;
+  StatusRequest? statusRequest;
   Crud crud = Crud();
   String? email = "";
 
   @override
   checkCode() async {
     statusRequest = StatusRequest.loading;
+    update();
     var response = await crud.postData(AppLinks.verifycodepassword, {
       "email": email,
       "verifycode": verifyCode,

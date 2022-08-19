@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
-import 'package:qcmapp/controller/auth/verifycodesignup_controller.dart';
+import 'package:qcmapp/controller/forgetpassword/verifycodeforgetpassword_controller.dart';
 import 'package:qcmapp/core/classes/handlingdataview.dart';
 import 'package:qcmapp/core/functions/getdimension.dart';
 import 'package:qcmapp/view/widgets/auth/custombuttonauth.dart';
 
-class VerifyCodeSignUp extends StatelessWidget {
-  const VerifyCodeSignUp({Key? key}) : super(key: key);
+class VerifyOtpForgetPassword extends StatelessWidget {
+  const VerifyOtpForgetPassword({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    VerifyCodeSignUpControllerImp controller =
-        Get.put(VerifyCodeSignUpControllerImp());
+    VerifyCodeForgetPasswordControllerImp controller =
+        Get.put(VerifyCodeForgetPasswordControllerImp());
+    controller.email = Get.parameters["email"];
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -35,8 +37,11 @@ class VerifyCodeSignUp extends StatelessWidget {
             padding: EdgeInsets.only(
                 left: getWith(20), right: getWith(20), bottom: getHeight(20)),
             children: [
-              Image.asset("assets/images/img4.png",
-                  width: getWith(150), height: getHeight(200)),
+              Image.asset(
+                "assets/images/img4.png",
+                width: getWith(150),
+                height: getHeight(200),
+              ),
               SizedBox(height: getHeight(30)),
               const Text(
                 "Enter OTP",
@@ -67,7 +72,7 @@ class VerifyCodeSignUp extends StatelessWidget {
               ),
               SizedBox(height: getHeight(10)),
               CustomButtonAuth(
-                onPressed: () {
+                onPressed: () async {
                   controller.checkCode();
                 },
                 text: "Verify",

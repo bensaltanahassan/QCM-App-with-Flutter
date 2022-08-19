@@ -23,9 +23,10 @@ class CustomButtonSignWith extends StatelessWidget {
           children: [
             Expanded(flex: 1, child: icon!),
             Expanded(
-              flex: 2,
+              flex: 4,
               child: Text(
                 text!,
+                textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.grey[900], fontSize: 14),
               ),
             ),

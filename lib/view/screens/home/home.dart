@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:qcmapp/controller/home/home_controller.dart';
 import 'package:qcmapp/core/classes/handlingdataview.dart';
 import 'package:qcmapp/core/constant/colors.dart';
-import 'package:qcmapp/core/constant/imageassets.dart';
+
 import 'package:qcmapp/core/functions/getdimension.dart';
 import 'package:qcmapp/view/widgets/auth/custombuttonauth.dart';
 
@@ -69,9 +69,7 @@ class Home extends StatelessWidget {
                         top: -45,
                         left: Get.width / 2 - getWith(45),
                         child: Image.asset(
-                          controller.loginAsGuest == 0
-                              ? "${AppImageAsset.rootImages}/${controller.avatar}"
-                              : controller.avatar!,
+                          controller.avatar!,
                           width: getWith(90),
                           height: getWith(90),
                         ),

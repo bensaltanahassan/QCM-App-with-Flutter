@@ -14,13 +14,15 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
 
   late TextEditingController emailController;
-  StatusRequest statusRequest = StatusRequest.loading;
+  StatusRequest? statusRequest;
   Crud crud = Crud();
 
   @override
   goToVerifyCode() async {
     var formData = formState.currentState;
     if (formData!.validate()) {
+      statusRequest = StatusRequest.loading;
+      update();
       var response = await crud.postData(AppLinks.forgetpassword, {
         "email": emailController.text,
       }).then((value) => value.fold((l) => l, (r) => r));
@@ -43,6 +45,7 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
         }
       }
     } else {}
+    update();
   }
 
   @override

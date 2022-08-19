@@ -18,7 +18,7 @@ class HomeControllerImp extends HomeController {
   String? name = "";
   String? avatar = "";
   String? email;
-  late StatusRequest statusRequest;
+  StatusRequest? statusRequest;
   Crud crud = Crud();
   List data = [];
   int? loginAsGuest;
@@ -37,6 +37,7 @@ class HomeControllerImp extends HomeController {
   @override
   getInfoUser() async {
     statusRequest = StatusRequest.loading;
+    update();
     loginAsGuest = myServices.sharedPreferences.getInt("loginasguest");
     if (loginAsGuest == 0) {
       email = myServices.sharedPreferences.getString("email");
@@ -49,7 +50,8 @@ class HomeControllerImp extends HomeController {
         if (response is Map) {
           data.addAll(response["data"]);
           name = data[0]["users_name"];
-          avatar = "${data[0]["users_avatar"]}.png";
+          avatar = data[0]["users_avatar"];
+          myServices.sharedPreferences.setString("avatar", avatar!);
         }
       }
     }
@@ -64,6 +66,7 @@ class HomeControllerImp extends HomeController {
   @override
   void onInit() async {
     await getInfoUser();
+
     super.onInit();
   }
 }

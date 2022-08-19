@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:qcmapp/core/classes/statusrequest.dart';
 
 class HandlingDataView extends StatelessWidget {
-  const HandlingDataView(
-      {Key? key, required this.statusRequest, required this.widget})
+  const HandlingDataView({Key? key, this.statusRequest, this.widget})
       : super(key: key);
-  final StatusRequest statusRequest;
-  final Widget widget;
+  final StatusRequest? statusRequest;
+  final Widget? widget;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class HandlingDataView extends StatelessWidget {
     } else if (statusRequest == StatusRequest.failure) {
       return const Center(child: Text("failer data "));
     } else {
-      return widget;
+      return widget!;
     }
   }
 }

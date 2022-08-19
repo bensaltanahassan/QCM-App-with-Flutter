@@ -8,7 +8,7 @@ abstract class ChooseCategorieController extends GetxController {
 
 class ChooseCategorieControllerImp extends ChooseCategorieController {
   MyServices myServices = Get.find();
-  String? avatar;
+  String? avatar = "";
 
   List questions = [];
   bool loadingQuestions = true;

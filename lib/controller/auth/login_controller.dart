@@ -23,7 +23,7 @@ class LoginControllerImp extends LoginController {
   late TextEditingController passwordController;
   bool isPassword = true;
   late Widget? suffixIcon;
-  late StatusRequest statusRequest;
+  StatusRequest? statusRequest;
   Crud crud = Crud();
   List data = [];
   String? msgErr;
@@ -31,6 +31,7 @@ class LoginControllerImp extends LoginController {
   @override
   login() async {
     statusRequest = StatusRequest.loading;
+    update();
     var formData = formState.currentState;
     if (formData!.validate()) {
       var response = await crud.postData(AppLinks.login, {
@@ -65,7 +66,7 @@ class LoginControllerImp extends LoginController {
                     ElevatedButton(
                       onPressed: () {
                         Get.toNamed(AppRoutes.verifycodeSignUp,
-                            parameters: {"email": emailController.text});
+                            arguments: {"email": emailController.text});
                       },
                       child: const Text("Verify Email"),
                     ),
@@ -81,6 +82,7 @@ class LoginControllerImp extends LoginController {
         }
       }
     } else {}
+    update();
   }
 
   @override

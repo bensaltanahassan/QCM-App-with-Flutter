@@ -27,7 +27,8 @@ class SuccessSignUp extends StatelessWidget {
             const Spacer(),
             CustomButtonAuth(
               onPressed: () {
-                Get.offAllNamed(AppRoutes.login);
+                Get.offAllNamed(AppRoutes.chooseavatar,
+                    arguments: {"email": Get.arguments["email"]});
               },
               text: "Continue",
             ),

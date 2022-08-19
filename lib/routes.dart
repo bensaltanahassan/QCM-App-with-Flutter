@@ -1,14 +1,15 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:qcmapp/core/constant/routes.dart';
 import 'package:qcmapp/core/middleware/mymiddleware.dart';
-import 'package:qcmapp/view/screens/auth/forgetpassword/forgetpassword.dart';
-import 'package:qcmapp/view/screens/auth/forgetpassword/successresetpasswor.dart';
+import 'package:qcmapp/view/screens/auth/chooseavatar.dart';
 import 'package:qcmapp/view/screens/auth/login.dart';
-import 'package:qcmapp/view/screens/auth/forgetpassword/resetpassword.dart';
 import 'package:qcmapp/view/screens/auth/signup.dart';
-import 'package:qcmapp/view/screens/auth/forgetpassword/verifyotpforgetpassword.dart';
 import 'package:qcmapp/view/screens/auth/successsignup.dart';
 import 'package:qcmapp/view/screens/auth/verifycodesignup.dart';
+import 'package:qcmapp/view/screens/forgetpassword/forgetpassword.dart';
+import 'package:qcmapp/view/screens/forgetpassword/resetpassword.dart';
+import 'package:qcmapp/view/screens/forgetpassword/successresetpasswor.dart';
+import 'package:qcmapp/view/screens/forgetpassword/verifyotpforgetpassword.dart';
 import 'package:qcmapp/view/screens/guest/informationguset.dart';
 import 'package:qcmapp/view/screens/home/choosecategorie.dart';
 import 'package:qcmapp/view/screens/home/chooseschool.dart';
@@ -31,6 +32,7 @@ List<GetPage<dynamic>>? routes = [
   // Auth
   GetPage(name: AppRoutes.login, page: () => const Login()),
   GetPage(name: AppRoutes.signUp, page: () => const SignUp()),
+  GetPage(name: AppRoutes.chooseavatar, page: () => const ChooseAvatar()),
   GetPage(name: AppRoutes.successSignUp, page: () => const SuccessSignUp()),
   GetPage(
       name: AppRoutes.verifycodeSignUp, page: () => const VerifyCodeSignUp()),

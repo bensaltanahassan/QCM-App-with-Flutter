@@ -14,13 +14,14 @@ abstract class VerifyCodeSignUpController extends GetxController {
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   String? verifyCode;
   Crud crud = Crud();
-  late StatusRequest statusRequest;
+  StatusRequest? statusRequest;
 
-  String? email;
+  String? email = "";
 
   @override
   checkCode() async {
     statusRequest = StatusRequest.loading;
+    update();
     var response = await crud.postData(AppLinks.verifycode, {
       "email": email,
       "verifycode": verifyCode,
@@ -37,7 +38,7 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
             backgroundColor: Colors.blue[200],
           );
         } else {
-          Get.offAllNamed(AppRoutes.successSignUp);
+          Get.offAllNamed(AppRoutes.successSignUp, arguments: {"email": email});
         }
       }
     }
@@ -50,11 +51,7 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
 
   @override
   void onInit() {
+    email = Get.arguments["email"];
     super.onInit();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 }

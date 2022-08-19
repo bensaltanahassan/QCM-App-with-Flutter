@@ -20,8 +20,8 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController passwordController;
   late TextEditingController nameController;
   late TextEditingController confirmPasswordController;
-  Crud crud = Crud();
-  late StatusRequest statusRequest;
+  Crud crud = Get.find();
+  StatusRequest? statusRequest;
   bool isPassword1 = true;
   late Widget? suffixIconPassword;
 
@@ -35,12 +35,12 @@ class SignUpControllerImp extends SignUpController {
     var formData = formState.currentState;
     if (formData!.validate()) {
       statusRequest = StatusRequest.loading;
+      update();
       var response = await crud.postData(AppLinks.signup, {
         "name": nameController.text,
         "email": emailController.text,
         "password": passwordController.text,
       }).then((value) {
-        print(value);
         return value.fold((l) => l, (r) => r);
       });
       statusRequest = handlingData(response);
@@ -48,7 +48,7 @@ class SignUpControllerImp extends SignUpController {
         if (response is Map) {
           if (response["status"] == "success") {
             Get.toNamed(AppRoutes.verifycodeSignUp,
-                parameters: {"email": emailController.text});
+                arguments: {"email": emailController.text});
           } else {
             Get.snackbar(
               "Email",
@@ -61,6 +61,7 @@ class SignUpControllerImp extends SignUpController {
         }
       }
     } else {}
+    update();
   }
 
   @override

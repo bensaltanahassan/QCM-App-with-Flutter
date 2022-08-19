@@ -18,7 +18,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   late TextEditingController passwordController;
   late TextEditingController confirmPasswordController;
   String? email;
-  StatusRequest statusRequest = StatusRequest.loading;
+  StatusRequest? statusRequest;
   Crud crud = Crud();
 
   bool isPassword1 = true;
@@ -38,6 +38,8 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   resetPassword() async {
     var formData = formState.currentState;
     if (formData!.validate()) {
+      statusRequest = StatusRequest.loading;
+      update();
       var response = await crud.postData(AppLinks.resetpassword,
           {"email": email, "password": passwordController.text}).then((value) {
         return value.fold((l) => l, (r) => r);
@@ -61,6 +63,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
         }
       }
     } else {}
+    update();
   }
 
   @override
